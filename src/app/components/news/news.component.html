@@ -1,9 +1,9 @@
 <div class="news-container">
   <h2>Latest Crypto News</h2>
-  <div *ngFor="let article of news| slice:0:10" class="news-item">
-    <h3></h3>
-    <a [href]="article.url" target="_blank">{{ article.title }}</a>
-    <p><strong>Source:</strong> {{ article.source }}</p>
-    <p><strong>Published:</strong> {{ article.published_on * 1000 | date:'medium' }}</p>
+
+  <div *ngFor="let article of news | slice:0:10" class="news-item">
+    <a [href]="article.url" target="_blank" class="news-title">{{ article.title }}</a>
+    <p class="news-source"><strong>Source:</strong> {{ article.source }}</p>
+    <p class="news-time"><strong>Published:</strong> {{ article.published_on * 1000 | date:'medium' }}</p>
   </div>
 </div>
