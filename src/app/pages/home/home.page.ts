@@ -14,9 +14,9 @@ export class HomePage {
   
   ngOnInit(): void {
     this.cryptoService
-      .setSymbol('ETH')
-      .setCurrency('EUR')
-      .setLimit(1)
+      .setSymbol('BTC')
+      .setCurrency('USD')
+      .setLimit(90)
       .build()
       .subscribe(response => {
         this.data = response.Data.map((item: { close: any; }) => item.close);

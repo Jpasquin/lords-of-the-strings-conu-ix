@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
 import { RouterModule, Routes } from '@angular/router';
 
+import { ChartComponent } from '../../components/chart/chart.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -14,6 +16,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [HomePage],
   imports: [
+    ChartComponent,
     CommonModule,
     FormsModule,
     RouterModule.forChild(routes)
