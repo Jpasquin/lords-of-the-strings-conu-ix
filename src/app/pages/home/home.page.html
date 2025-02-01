@@ -1,22 +1,25 @@
 <div class="bg-black text-white">
+  <!-- Header -->
   <div class="bg-[#181a1f] w-full flex items-center h-[104px] px-3 text-2xl">
     Header
   </div>
 
-  <div class="mt-1 mx-1 grid grid-cols-4 grid-rows-2 gap-1">
-    <!-- Main Content -->
-    <div class="col-span-3 row-span-2 bg-[#181a1f] flex items-center h-[56px] px-4 text-xl rounded-lg">
+  <!-- Main Content Grid -->
+  <div class="mt-1 mx-1 grid grid-cols-1 md:grid-cols-4 gap-2 items-start">
+    <!-- BTC Section -->
+    <div class="md:col-span-3 bg-[#181a1f] flex items-center h-[104px] px-4 text-xl rounded-lg">
       <h1 class="font-bold">BTC</h1>
     </div>
 
-    <div class="bg-[#181a1f] col-span-1 row-span-3 rounded-lg p-3">
-      <h2 class="text-xl font-bold">Right Panel</h2>
+    <!-- News Section -->
+    <div class="bg-[#181a1f] md:col-span-1 rounded-lg p-3">
       <app-news></app-news>
     </div>
-    <div class="col-span-3 p-3 bg-[#181a1f] rounded-lg">
-      <app-chart></app-chart>
-    </div>
 
-    <!-- Right Panel spanning both rows -->
+    <!-- Chart Section -->
+    <div class="md:col-span-3 p-3 bg-[#181a1f] rounded-lg flex flex-col">
+      <app-chart class="flex-grow"></app-chart>
+    </div>
+    
   </div>
 </div>
