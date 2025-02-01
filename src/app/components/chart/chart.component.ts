@@ -29,24 +29,24 @@ export class ChartComponent {
       title: {
         text: 'Cryptocurrencies'
       },
-
       xaxis: {
         type: 'datetime',
         labels: {
           style: {
-            colors: '#FFFFFF'  // White color for x-axis labels
+            colors: '#FFFFFF'
           }
         }
       },
-
-      yaxis: {
-
-        labels: {
-          style: {
-            colors: '#FFFFFF'  // White color for y-axis labels
-          }
+      yaxis: [
+        {
+          labels: {
+            style: {
+              colors: '#FFFFFF'
+            }
+          },
+          opposite: true
         }
-      },
+      ],
       theme: {
         mode: 'dark',
       }
@@ -58,6 +58,7 @@ export class ChartComponent {
     this.cryptoService
       .setSymbol('BTC')
       .setCurrency('USD')
+      .setLimit(30)
       .build()
       .subscribe(response => {
           this.chartOptions.series[0].data = response.Data.map((item: { open: any; close: any; high: any; low: any; time: any }) => {

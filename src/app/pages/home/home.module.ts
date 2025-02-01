@@ -5,6 +5,7 @@ import { HomePage } from './home.page';
 import { RouterModule, Routes } from '@angular/router';
 
 import { ChartComponent } from '../../components/chart/chart.component';
+import { CryptoBarComponent } from '../../components/crypto-bar/crypto-bar.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [HomePage],
   imports: [
+    CryptoBarComponent,
     ChartComponent,
     CommonModule,
     FormsModule,
