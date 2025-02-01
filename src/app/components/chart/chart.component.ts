@@ -18,13 +18,8 @@ export class ChartComponent {
       series: [
         {
           name: 'Crypto',
-          data: [
-            { x: new Date('2023-01-01').getTime(), y: [32, 34, 30, 33] },
-            { x: new Date('2023-01-02').getTime(), y: [33, 35, 31, 32] },
-            { x: new Date('2023-01-03').getTime(), y: [32, 33, 30, 31] },
-            { x: new Date('2023-01-04').getTime(), y: [31, 34, 30, 33] },
-            { x: new Date('2023-01-05').getTime(), y: [33, 35, 32, 34] }
-          ]
+          data: [],
+          background: '#121212'
         }
       ],
       chart: {
@@ -32,12 +27,52 @@ export class ChartComponent {
         type: 'candlestick',
       },
       title: {
-        text: 'Product Sales Over Time'
+        text: 'Cryptocurrencies'
       },
 
       xaxis: {
-        type: 'datetime'
+        type: 'datetime',
+        labels: {
+          style: {
+            colors: '#FFFFFF'  // White color for x-axis labels
+          }
+        }
+      },
+
+      yaxis: {
+
+        labels: {
+          style: {
+            colors: '#FFFFFF'  // White color for y-axis labels
+          }
+        }
+      },
+      theme: {
+        mode: 'dark',
       }
+
     };
   }
+
+  ngOnInit(): void {
+    this.cryptoService
+      .setSymbol('BTC')
+      .setCurrency('USD')
+      .build()
+      .subscribe(response => {
+          this.chartOptions.series[0].data = response.Data.map((item: { open: any; close: any; high: any; low: any; time: any }) => {
+            // Convert Unix timestamp to Date (in milliseconds)
+            const date = new Date(item.time * 1000);  // Ensure it's in milliseconds
+
+            return {
+              x: date.toLocaleDateString(),  // Format to display only the date (you can change this as needed)
+              y: [item.open, item.high, item.low, item.close]
+            };
+          });
+          console.log('Crypto Data:', response);
+      });
+  }
+
+}
+
 
