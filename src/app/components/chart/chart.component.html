@@ -1,6 +1,28 @@
-<apx-chart
-  [series]="chartOptions.series" 
-  [chart]="chartOptions.chart" 
+<div class="header">
+  <div class = "flex space-x-1 py-1">
+    <button
+      *ngFor="let timeframe of timeframes"
+      class="cursor-pointer text-white px-4 py-2 rounded-md mx-2"
+      (click)="fetchCryptoData(timeframe.value, timeframe.endpoint)"
+      [ngClass]="{
+        'font-bold text-gray-500 cursor-pointer': true,
+        'text-gray-300': selectedTimeframe === timeframe.value,
+        'hover:text-gray-200': selectedTimeframe !== timeframe.value
+      }"
+      class="px-4 py-2 rounded-md"
+      [class.active]="selectedTimeframe === timeframe.value">
+      {{ timeframe.label }}
+    </button>
+  </div>
+
+  <apx-chart
+
+  [series]="chartOptions.series"
+  [chart]="chartOptions.chart"
   [title]="chartOptions.title"
-  [xaxis]="chartOptions.xaxis">
+  [xaxis]="chartOptions.xaxis"
+  [yaxis]="chartOptions.yaxis"
+  [grid]="chartOptions.grid"
+  [theme]="chartOptions.theme">
 </apx-chart>
+</div>
