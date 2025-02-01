@@ -63,7 +63,7 @@ export class ChartComponent {
       },
 
       grid: {
-        borderColor: '##1f242b',  // Lighter grid line color
+        borderColor: '#1f242b',  // Lighter grid line color
         xaxis: {
           lines: {
             show: true  // Show grid lines on the x-axis
