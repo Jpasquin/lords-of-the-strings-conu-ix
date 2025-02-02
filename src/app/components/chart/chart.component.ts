@@ -39,11 +39,9 @@ export class ChartComponent {
       chart: {
         height: 350,
         type: 'candlestick',
-        toolbar: { show: false }
+        toolbar: { show: false },
+        background: '#181a1f'
       },
-
-
-
       xaxis: {
         type: 'datetime',
         labels: {
@@ -61,9 +59,8 @@ export class ChartComponent {
           }
         }
       },
-
       grid: {
-        borderColor: '##1f242b',  // Lighter grid line color
+        borderColor: '#1f242b',  // Lighter grid line color
         xaxis: {
           lines: {
             show: true  // Show grid lines on the x-axis
