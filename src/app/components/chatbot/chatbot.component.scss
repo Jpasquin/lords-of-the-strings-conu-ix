@@ -1,58 +1,36 @@
-.chat-container {
-  width: 100%;
-  max-width: 400px;
-  height: 500px;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  overflow: hidden;
+@keyframes blink {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.2; }
 }
 
-.chat-box {
-  flex-grow: 1;
+.dot {
+  animation: blink 1.5s infinite;
+}
+
+.dot:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* ✅ Ensure the chat box doesn’t have an inner scrollbar */
+.flex-grow {
   overflow-y: auto;
-  padding: 10px;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
 }
 
-.message {
-  padding: 8px 12px;
-  margin: 5px 0;
-  border-radius: 10px;
-  max-width: 80%;
+.flex-grow::-webkit-scrollbar {
+  display: none; /* Hide scrollbar in Chrome/Safari */
 }
 
-.user {
-  align-self: flex-end;
-  background-color: #0084ff;
-  color: white;
-}
-
-.bot {
-  align-self: flex-start;
-  background-color: #f1f1f1;
-  color: black;
-}
-
-.input-container {
-  display: flex;
-  padding: 10px;
-  border-top: 1px solid #ccc;
-}
-
-input {
-  flex-grow: 1;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-button {
-  margin-left: 5px;
-  padding: 8px 12px;
-  background-color: #0084ff;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* ✅ Smooth scrolling behavior */
+.flex-grow {
+  scroll-behavior: smooth;
 }

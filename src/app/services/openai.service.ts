@@ -8,11 +8,12 @@ import { environment } from '../../environments/environment';  // ✅ Import the
 })
 export class OpenAiService {
   private apiUrl = 'https://api.openai.com/v1/chat/completions';
-  private apiKey = environment.apiKey;
-
+  private apiKey: string = environment.openAIApiKey;
   constructor(private http: HttpClient) {}
 
   sendMessage(message: string, cryptoData: any): Observable<any> {
+    console.log(this.apiKey);
+
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${this.apiKey}`,
